@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Binding</title>
+  <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+  <style>
+      .menu a {
+        display: block;
+      }
+      .tabContainer {
+        border: 1px dotted grey;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      .active {
+        color: blue;
+      }
+  </style>
+</head>
+<body>
+  <div x-data="{ show: false }">
+    <button @click="show = !show" x-text="show ? 'Hide' : 'Show'"></button>
+
+    <div class="menu" x-show="show">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <br>
+  <div x-data="{ currentTab: 'first' }">
+    <button @click="currentTab = 'first'" :class="{ 'active': currentTab === 'first' }">First</button>
+    <button @click="currentTab = 'second'" :class="{ 'active': currentTab === 'second' }">Second</button>
+    <button @click="currentTab = 'third'" :class="{ 'active': currentTab === 'third' }">Third</button>
+    
+    <div class="tabContainer">
+        <div x-show="currentTab === 'first'">
+          <p>First tab.</p>
+        </div>
+        <div x-show="currentTab === 'second'">
+          <p>Second tab.</p>
+        </div>
+        <div x-show="currentTab === 'third'">
+          <p>Third tab.</p>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
