@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Binding</title>
+  <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+</head>
+<body>
+  <div x-data="{ message: 'Hello world!' }">
+    <h1 x-text="message"></h1>
+    <button @click="message = 'Changed!'">Click Me</button>
+
+    <h2 x-text="message.toUpperCase()"></h1>
+    <input type="text" :value="message">
+    <br>
+
+    <input type="text" x-model="message">
+  </div><br>
+
+  <div x-data="{ first: 0, second: 0 }">
+    <p>Basic calculator</p>
+    <input type="text" x-model.number="first"> + <input type="text" x-model.number="second"> = <output x-text="first + second"></output>
+  </div>
+</body>
+</html>
